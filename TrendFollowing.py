@@ -22,13 +22,13 @@ etl = ETL()
 # _name = etl.getData(ticker=_t, duration=_d)
 
 #load data
-df= readPickle(_m + _nd, _sd,_ed)
+# df= readPickle(_m + _nd, _sd,_ed)
 # df= readPickle(_m + _n)
 
 # get plots
 
-# plotMACD(etl.macdWeekly(readPickle(_m + _nw)))
-plotDailyMA(etl.maDailyData(df), _nd)
+plotMACD(etl.macdWeekly(readPickle(_m + _nw)))
+# plotDailyMA(etl.maDailyData(df), _nd)
 # etl.maDailyData(readPickle(_m + _nd)).to_excel('VTI_OUT.xlsx')
 
 # print(etl.maDailyData(df).tail())

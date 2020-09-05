@@ -9,7 +9,7 @@ Currently applying this to trade a practice account on CME as well as my real st
 ### Data source
 Stock price data are taken from Alpha Advantage throug the pandas.DataReader wrapper. You will need a API key (free). More details here: [AlphaVantage Documentation](https://www.alphavantage.co/documentation/)
 
-###The strategy
+### The strategy
 EMA cross over with ATR stops and in the direction of MACD
 | Steps | Description |
 | ------ | ------ |
@@ -18,7 +18,7 @@ EMA cross over with ATR stops and in the direction of MACD
 |Trading Rule|
 | Entry | Long: MA10 > MA100 AND MACD > 0 AND MACD > SIGNAL AND UPWARD SLOPE  |
 ||Short: MA10 < MA100 AND MACD < 0 AND MACD < SIGNAL AND DOWNWARD SLOPE |
-| Risk/Position Sizing | INITIAL HARD STOP: $1000|
+| Risk/Position Sizing | INITIAL HARD STOP: $1000 (or 1% of your trading account equity)|
 ||Once price move beyond HARD STOP, starting moving the ATR with spot price with rachet (only UP/DOWN when LONG/SHORT)|
 | Re-entry | New HIGH/LOW on LONG/SHORT current trend |
 
@@ -73,7 +73,36 @@ _ed = getDate()
 #initialize ETL module
 etl = ETL()
 ```
+
+To start downloading the data:
+
+```python
+# download data
+_name = etl.getData(ticker=_t, duration=_d)
+```
+
+To load data and process through the ETL pipeline and plotting
+
+```python
+#load data
+df= readPickle(_m + _nd, _sd,_ed)
+
+#this will analyze all the of the available data 
+#rather than a limited window defined by _sd and _ed
+# df= readPickle(_m + _n)
+
+# get plots
+plotDailyMA(etl.maDailyData(df), _nd)
+```
+
 ```etl.py``` modulu handles all data clean and analysis while ```plotting.py``` handle the data output from ```etl.py``` in a streamline way to create the plots.
 
 ### Example output
+
+Below is an example output of SPEM ticker from September 2019 to September 2020, showing all three EMA lines in the top subplot. These features are very standard for every single trading platform tool out there. However, the position logic, the stops and rachet mechanism for the stops are not something I see often. The bottom subplot is showing the stops for long and short position determine by the trading rule. A rachet mechanism is also implemented so that the stop doesn't move in the opposite direction to the current position.
+
 ![SPEM](https://github.com/tdkcumberland/TechnicalAnalysis/blob/master/Example.png)
+
+If interested, one can also plot the MACD and ATR to inspect how the stops come about. The plot below shown for the same ticker going back to 2008.
+
+![SPEM](https://github.com/tdkcumberland/TechnicalAnalysis/blob/master/MACD.png)

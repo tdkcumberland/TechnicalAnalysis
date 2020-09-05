@@ -7,7 +7,7 @@ def plotMACD(df_weekly):
     fig,plotArea =  plt.subplots(nrows=3, ncols=1,squeeze=False)
     register_matplotlib_converters()
     newConfig = iniConfig()
-    plotArea[0][0].plot(df_weekly['5. adjusted close'], label = 'weekly',color='#646464')
+    plotArea[0][0].plot(df_weekly['5. adjusted close'], label = 'daily',color='#646464')
     plotArea[0][0].plot(df_weekly['ma26'], label = 'ma' + str(newConfig.weekly_long_ma_span()),color='#3296FA')
     plotArea[0][0].plot(df_weekly['ma12'], label = 'ma' + str(newConfig.weekly_short_ma_span()),color='#C83232')
 
