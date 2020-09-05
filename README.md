@@ -106,3 +106,6 @@ Below is an example output of SPEM ticker from September 2019 to September 2020,
 If interested, one can also plot the MACD and ATR to inspect how the stops come about. The plot below shown for the same ticker going back to 2008.
 
 ![SPEM](https://github.com/tdkcumberland/TechnicalAnalysis/blob/master/MACD.png)
+
+
+### TO DO: model validation and back testing
