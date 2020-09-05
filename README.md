@@ -76,4 +76,4 @@ etl = ETL()
 ```etl.py``` modulu handles all data clean and analysis while ```plotting.py``` handle the data output from ```etl.py``` in a streamline way to create the plots.
 
 ### Example output
-![SPEM](https://github.com/tdkcumberland/TechnicalAnalysis/Example.png)
+![SPEM](https://github.com/tdkcumberland/TechnicalAnalysis/blob/master/Example.png)
