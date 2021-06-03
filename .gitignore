@@ -1,1 +1,9 @@
 /apiKey.txt
+/dataStore
+/*.png
+/*.xlsx
+/unused.txt
+trading_position_*
+.vscode
+JJA_test
+__pycache__
