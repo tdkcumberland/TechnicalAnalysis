@@ -313,7 +313,6 @@ class ETL():
                 if dailyPrice >= currentPeakTrough:
                     currentPeakTrough = dailyPrice
                     output.loc[index,'trading_position_before'] = 1
-                #elif
                 elif ((currentPeakTrough-dailyPrice)/currentPeakTrough)*100 > 5:
                     currentPosition['exit'] = True
                     tradeCount +=1

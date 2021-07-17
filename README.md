@@ -103,9 +103,14 @@ Below is an example output of SPEM ticker from September 2019 to September 2020,
 
 ![SPEM](https://github.com/tdkcumberland/TechnicalAnalysis/blob/master/Example.png)
 
-If interested, one can also plot the MACD and ATR to inspect how the stops come about. The plot below shown for the same ticker going back to 2008.
-
-![SPEM](https://github.com/tdkcumberland/TechnicalAnalysis/blob/master/MACD.png)
+If interested, one can also plot the MACD and ATR to inspect how the stops come about.
 
 
-### TO DO: model validation and back testing
+### Back test:
+
+Below is back test of VTI (total market ETF) going back to 2020-01-01. From this it is clear that this strategy is defensive one. I will only outperform the market if there's a large drop of at least the defined stop loss. Else due to the delay nature of the moving average signal, I will under perform the market.
+
+This is strategy would be good as an active volatility segment of a portfolio to guard against negative market volatility. In a long secular bull market, this strategy will under perform buy and hold.
+
+![VTI](https://github.com/tdkcumberland/TechnicalAnalysis/blob/master/VTI_strategies_return.png)
+
